@@ -1,8 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style>
+    body {
+      margin: 0;
+    }
+    #chat {
+      width: 100%;
+      height: 100vh;
+      border: 0;
+    }
+  </style>
 </head>
 <body>
-  <div>hello world</div>
 </body>
-</html>`
+<script>
+ const urlParams = new URLSearchParams(window.location.search);
+ const videoId = urlParams.get('videoId');
+ const iframeEle = document.createElement('iframe');
+ iframeEle.setAttribute('id', `chat`);
+ iframeEle.setAttribute('src', `https://www.youtube.com/live_chat?v=${videoId}&embed_domain=${window.location.hostname}`);
+ document.body.append(iframeEle);
+</script>
+</html>
